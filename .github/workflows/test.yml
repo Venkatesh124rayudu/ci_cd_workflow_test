@@ -23,6 +23,4 @@ jobs:
         run: npm install
 
       - name: Run Vitest tests
-        env:
-          VITE_OPEN_WEATHER_API_KEY: ${{ secrets.VITE_OPEN_WEATHER_API_KEY }}
         run: npm test -- --run
