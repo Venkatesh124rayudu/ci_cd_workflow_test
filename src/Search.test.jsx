@@ -1,6 +1,9 @@
+import React from "react";  // 👈 add this
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import Search from "./SearchBox";
 import { vi } from "vitest";
+
+
 
 beforeAll(() => {
   global.fetch = vi.fn();

@@ -2,7 +2,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import "./SearchBox.css";
-import { useState } from "react";
+import React, { useState } from "react";
 export default function Search({ updateInfo }) {
   const [city, setCity] = useState("");
   const [error, setError] = useState(false);
