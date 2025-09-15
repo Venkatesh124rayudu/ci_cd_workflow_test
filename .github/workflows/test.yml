@@ -9,22 +9,31 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    
     steps:
       # Step 1: Checkout repo
       - name: Checkout repository
-        uses: actions/checkout@v3
-
+        uses: actions/checkout@v4  # Updated to v4
+        
       # Step 2: Setup Node.js
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # Updated to v4
         with:
-          node-version: 18
-
-      # Step 3: Install dependencies
+          node-version: '18'
+          cache: 'npm'  # Cache npm dependencies
+          
+      # Step 3: Clear npm cache (helps with CI issues)
+      - name: Clear npm cache
+        run: npm cache clean --force
+        
+      # Step 4: Install dependencies
       - name: Install dependencies
-        run: npm install
-
-      # Step 4: Run Vitest tests
+        run: npm ci  # Use npm ci instead of npm install for CI
+        
+      # Step 5: Set environment variable for tests
+      - name: Set test environment
+        run: echo "VITE_OPEN_WEATHER_API_KEY=test-key" >> $GITHUB_ENV
+        
+      # Step 6: Run Vitest tests
       - name: Run tests
-        run: npm test
+        run: npm test -- --reporter=verbose

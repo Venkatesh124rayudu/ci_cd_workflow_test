@@ -7,6 +7,17 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './src/setupTests.js', // ✅ load jest-dom matchers
+    setupFiles: './src/setupTests.js',
+    // Add these options to fix CI issues
+    pool: 'forks', // Use forks instead of threads
+    poolOptions: {
+      forks: {
+        singleFork: true
+      }
+    },
+    // Handle environment variables
+    env: {
+      VITE_OPEN_WEATHER_API_KEY: 'test-key'
+    }
   },
 });
