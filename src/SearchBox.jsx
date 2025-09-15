@@ -8,7 +8,7 @@ export default function Search({ updateInfo }) {
   const [error, setError] = useState(false);
 
   const api = "https://api.openweathermap.org/data/2.5/weather";
-  const apiKey = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
+  const apiKey = import.meta.env.VITE_OPEN_WEATHER_API_KEY || "DUMMY_KEY";
 
   let getWheather = async () => {
     try {
