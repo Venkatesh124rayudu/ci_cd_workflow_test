@@ -10,10 +10,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
-    "test:visual": "playwright test",
-    "test:visual:ui": "playwright test --ui",
-    "test:visual:update": "playwright test --update-snapshots",
-    "test:all": "npm run test && npm run test:visual",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:update": "playwright test --update-snapshots",
+    "test:all": "npm run test && npm run test:e2e",
     "lint": "eslint ."
   },
   "dependencies": {
