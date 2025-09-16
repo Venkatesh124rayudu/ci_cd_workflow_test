@@ -15,6 +15,18 @@ dist
 dist-ssr
 *.local
 
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Visual regression test screenshots (commit the expected ones)
+# Remove this line to commit baseline screenshots:
+# tests/visual/**/*-actual.png
+# tests/visual/**/*-diff.png
+
 .qodo
 .env
 .env*
